@@ -1,0 +1,237 @@
+$body: #bdbcbc;
+$wrapperColor: #e0e0e0;
+$colorLinkk : white;
+$colorActivLink: #3d928d;
+$h1Color: #292929;
+$blue : blue; 
+$gray: gray; 
+@mixin screen ($media) {
+    @if $media == small {
+        @media (max-width: 320px) {@content}
+    }@else if $media == medium {
+        @media (max-width: 900px) {@content};
+    } 
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: $body;
+}
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: $wrapperColor;
+    @include screen(medium){
+        margin: 80px auto;
+    }
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    @include screen(medium){
+        display: none;
+        width: 100%;
+        position: fixed;
+        flex-direction: column;
+        top: 80px;
+        z-index: 3;
+        background-color: $h1Color;
+    }
+    a{
+        text-decoration: none;
+        color: $colorLinkk;
+        text-transform: uppercase;
+        margin-left: 10px;
+        transition: all 300ms;
+        &:hover{
+            color: $colorActivLink
+        }
+        @include screen(medium){
+            display: block;
+            margin: 20px 0;
+        }
+
+    }
+    .navLogo{
+        .logo{
+            background-image: url('https://fs-th03.getcourse.ru/fileservice/file/thumbnail/h/ea5df5b2296788acbaa1fea0edd043d9.png/s/f1200x/a/116/sc/428');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            padding: 12px 91px;
+        }
+    }
+    
+}
+h1{
+    text-align: center;
+    color: $h1Color;
+}
+section{
+    min-height: 30vh;
+}
+.about{
+    .discription{
+        width: 90%;
+        margin: 0 auto;
+        p{
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.price{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.price .pr_1{
+    width: 255px;
+    border: 1px solid #dad7d7;
+    text-align: center;
+    margin: 0 4px;
+    margin-bottom: 40px;
+    @include screen(medium){
+        margin: 0 auto;
+    }
+}
+.price .tech_pr_1{
+    width: 80%;
+    margin: 0 auto;
+}
+.price .pr_1 .price_general{
+    display: flex;
+    justify-content: center;
+} 
+.price .pr_1 .price_general .price_general_1{
+
+}
+.price .pr_1 .price_general .price_general_2{
+    margin: 0 5px;
+    color: $blue;
+    font-size: 50px;
+}
+.price .pr_1 .price_general .price_general_3{
+    line-height: 78px;
+}
+.price .pr_1  p{
+     padding: 10px 0;
+     border-bottom: 1px solid $gray; 
+}
+.price .pr_1 a{
+    display: inline-block;
+    margin: 10px 0;
+    padding: 5px 30px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 2px;
+    color: white;
+    background-color: $blue;
+    transition: 1s all;
+    &:visited{
+        color: white;
+        background-color: $blue;
+    }
+    &:hover{
+        color: white;
+        background-color: #2b79aa;
+    }
+}
+.price .pr_1 .texh_p{
+    line-height: 41px;
+}
+.price .pr_1 .cutaway{
+    padding-top: 100px;
+    border: 0 solid white;
+    text-transform: uppercase;
+    position: relative;
+}
+.price .pr_1 .company{
+    padding-top: 100px;
+    border: 0 solid white;
+    text-transform: uppercase;
+    position: relative;
+    &::before{
+        content: '';
+        padding: 50px;
+        background-image: url("https://sergdevguy.com/wp-content/uploads/2019/03/4.png");
+        background-size: 100%;
+        background-position: 100% 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        color: #ada5a5;
+        top: 0;
+        left: 30%; 
+    }
+}
+form{
+    background-color: rgba(119, 119, 119, 0.575);
+    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    margin: 0 auto;
+    h2{
+        font-weight: normal;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    input{
+        padding: 15px 10px;
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    input[type="submit"]{
+        color: white;
+        background-color: $blue;
+        font-size: 17px;
+        border: 0 solid $blue;
+        transition: 1s all;
+        &:hover{
+            background-color: #007cc9;
+        } 
+    }
+    p{
+        font-size: 13px;
+        line-height: 20px;
+    }
+}
+.navMobile{
+    display: none;
+    background: $blue;
+    width: 40px;
+    height: 4px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    @include screen (medium){
+        display: block;
+    } 
+    
+    &:before {
+        content: "";
+        position: absolute;
+        background: $blue;
+        width: 40px;
+        height: 4px;
+        top: -11px;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        background: $blue;
+        width: 40px;
+        height: 4px;
+        bottom: -11px;
+    }
+}
